@@ -1,0 +1,82 @@
+<?component name="acelabel" extends="label" style="font-weight:normal; white-space:nowrap;" ?>
+
+<vbox id="aceConfigContainer" spacing="2px" hflex="1" vflex="1" align="stretch" 
+      apply="org.docma.plugins.ace.AceConfigComposer">
+
+  <hbox hflex="1" vflex="min" pack="stretch" spacing="6px">
+    <groupbox hflex="2">
+      <caption label="${labels.ace_text_highlight.display_settings}: " style="font-weight:bold;"/>
+      <vbox hflex="1" align="stretch">
+        <hbox hflex="1" pack="stretch" align="center" spacing="4px">
+          <acelabel hflex="1">${labels.ace_text_highlight.default_theme}:</acelabel>
+          <listbox id="aceConfigDefaultThemeBox" mold="select" rows="1"></listbox>
+        </hbox>
+        <hbox align="center">
+          <acelabel hflex="min">${labels.ace_text_highlight.font_size}:</acelabel>
+          <hbox hflex="1" pack="end" align="center">
+            <doublespinner id="aceConfigFontSizeBox" step="0.5" value="1" locale="en" constraint="min 0" cols="6"/>
+            <listbox id="aceConfigFontSizeUnit" rows="1" mold="select" >
+              <listitem label="cm" value="cm"/>
+              <listitem label="mm" value="mm"/>
+              <listitem label="in" value="in"/>
+              <listitem label="pt" value="pt"/>
+              <listitem label="pc" value="pc"/>
+              <listitem label="px" value="px"/>
+              <listitem label="em" value="em"/>
+              <listitem label="%" value="%"/>
+            </listbox>
+          </hbox>
+        </hbox>
+        <hbox align="center" spacing="2px">
+          <checkbox id="aceConfigLineHighlightBox" hflex="min" />
+          <acelabel>${labels.ace_text_highlight.line_highlight}</acelabel>
+        </hbox>
+      </vbox>
+    </groupbox>
+    <groupbox hflex="min">
+      <caption label="${labels.ace_text_highlight.tab_settings}: " style="font-weight:bold;"/>
+      <vbox hflex="1" align="stretch">
+        <vbox align="start">
+          <acelabel hflex="1">${labels.ace_text_highlight.tab_size}:</acelabel>
+          <spinner id="aceConfigTabSizeBox" constraint="min 1" width="60px" />
+        </vbox>
+        <hbox align="center" spacing="2px">
+          <checkbox id="aceConfigSoftTabsBox" hflex="min" />
+          <acelabel>${labels.ace_text_highlight.soft_tabs}</acelabel>
+        </hbox>
+      </vbox>
+    </groupbox>
+    <groupbox hflex="1">
+      <caption label="${labels.ace_text_highlight.bg_color}: " style="font-weight:bold;"/>
+      <vbox hflex="1" align="stretch">
+        <hbox hflex="1" pack="stretch" align="end" spacing="2px">
+          <vbox align="start" spacing="0px">
+            <acelabel>${labels.ace_text_highlight.edit_bg_color}:</acelabel>
+            <checkbox id="aceConfigEditBgDefaultBox" label="${labels.ace_text_highlight.default_color}" />
+          </vbox>
+          <colorbox id="aceConfigEditBgColBox" />
+        </hbox>
+        <hbox hflex="1" pack="stretch" align="end" spacing="2px">
+          <vbox align="start" spacing="0px">
+            <acelabel>${labels.ace_text_highlight.view_bg_color}:</acelabel>
+            <checkbox id="aceConfigViewBgDefaultBox" label="${labels.ace_text_highlight.default_color}" />
+          </vbox>
+          <colorbox id="aceConfigViewBgColBox" />
+        </hbox>
+      </vbox>
+    </groupbox>
+  </hbox>
+  <separator spacing="2px"/>
+  <grid id="aceConfigExtensionsGrid" hflex="1" height="200px" sizedByContent="false">
+      <columns sizable="true">
+        <column label="${labels.ace_text_highlight.extensions}" width="18%" style="white-space:normal;" />
+        <column label="${labels.ace_text_highlight.mode} / ${labels.ace_text_highlight.theme}" width="34%" style="white-space:normal;" />
+        <column label="${labels.ace_text_highlight.options}" width="20%" style="white-space:normal;" />
+        <column label="${labels.ace_text_highlight.bg_color}" width="28%" style="white-space:normal;" />
+      </columns>
+      <rows></rows>
+  </grid>
+  <separator spacing="2px"/>
+  <acelabel>${labels.ace_text_highlight.editor_init_code}:</acelabel>
+  <textbox id="aceConfigInitCodeBox" multiline="true" rows="3" hflex="1" />
+</vbox>
